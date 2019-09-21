@@ -1,0 +1,15 @@
+This is the backend part of the application implemented using spring boot and H2 database
+
+To Run:
+1) run this command : mvnspring-boot:run
+2) call the endpoint : localhost:8080/task/initialize
+which will persist all data in the database
+
+Endpoints:
+1) localhost:8080/task/books   -> gets all books
+2) localhost:8080/task/books/{bookid}  -> gets a specific book + updates its views + triggers similarity calculations asynchronously
+3) localhost:8080/task/books/{bookid}/similarBooks  -> finds all similar books to this book
+
+Comments:
+The application is fully tested from the UI.. However  unit tests and integration tests are missing for the BookController
+But there are a lot of other unit tests and integration tests for the rest of the classes.
