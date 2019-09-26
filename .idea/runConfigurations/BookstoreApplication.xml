@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="BookstoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="runConfigurations">
+    <module name="bookStoreBackend" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.check24.codingchallenge.bookstore.BookstoreApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="INCLUDE_PROVIDED_SCOPE" value="false" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
