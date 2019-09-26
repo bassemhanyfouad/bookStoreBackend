@@ -2,8 +2,6 @@ package com.check24.codingchallenge.bookstore.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,7 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = User.TABLE_NAME)
 public class User extends AuditModel {
-    static final String TABLE_NAME = "USER";
+    static final String TABLE_NAME = "person";
 
     @Id
     @Column(name = "ID", updatable = false, nullable = false)
