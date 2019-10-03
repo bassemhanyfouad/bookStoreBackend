@@ -15,6 +15,5 @@ pipeline {
                 echo "${params.greeting} world"
             }
         }
-
     }
 }
