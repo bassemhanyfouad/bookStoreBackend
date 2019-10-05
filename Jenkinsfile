@@ -1,6 +1,11 @@
 pipeline {
     //who will run this pipeline
-    agent any
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
     //the parameters to be passed when running this pipeline
     parameters {
         string(name: 'greeting', defaultValue: 'Hello', description: 'How should I greet?')
@@ -9,10 +14,9 @@ pipeline {
     //our stages
     stages {
         //first stage
-        stage ("Hello") {
-            //stage steps
+        stage('Build') {
             steps {
-                echo "${params.greeting} world"
+                sh 'mvn -B -DskipTests clean package'
             }
         }
     }
