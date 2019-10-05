@@ -47,16 +47,7 @@ create table user_view
         constraint fk_user_view_user_id references person,
     primary key (book_id, user_id)
 );
-create table user_viewed_books
-(
-    user_id              int8 not null
-        constraint fk_user_viewed_books_user_id
-            references person,
-    viewed_books_book_id int8 not null
-        constraint fk_user_viewed_books_book_id
-            references book,
-    primary key (user_id, viewed_books_book_id)
-);
+
 alter table if exists person
     add constraint UK_user_email unique (email);
 alter table if exists person

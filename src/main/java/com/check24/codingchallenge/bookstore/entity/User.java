@@ -48,7 +48,7 @@ public class User extends AuditModel {
     private boolean active;
 
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "viewedBy")
     @JsonBackReference
     private Set<Book> viewedBooks = new HashSet<>();
 
