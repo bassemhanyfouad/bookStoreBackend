@@ -1,10 +1,8 @@
 package com.check24.codingchallenge.bookstore.controller;
 
-import com.check24.codingchallenge.bookstore.entity.User;
 import com.check24.codingchallenge.bookstore.payload.LoginRequest;
 import com.check24.codingchallenge.bookstore.repository.UserRepository;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,13 +79,6 @@ public class UserControllerIT {
                     "spring.datasource.password=" + postgreSQLContainer.getPassword()
             ).applyTo(configurableApplicationContext.getEnvironment());
         }
-    }
-
-
-    @Before
-    public void initialize() {
-        User user = new User("012000292", "ab@gmail.com", "ab", "1234", true);
-        userRepository.findByEmail("ab@gmail.com").orElseGet(() -> userRepository.saveAndFlush(user));
     }
 
     @Test
