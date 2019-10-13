@@ -57,8 +57,10 @@ public class UserControllerIT {
                     .withDatabaseName("books_service_test")
                     .withUsername("test")
                     .withPassword("test")
-                    .withExposedPorts(5433)
+                    .withExposedPorts(5434)
                     .withNetwork(Network.SHARED);
+
+
 
 
     // fix for several integration tests classes using an abstract test class:
