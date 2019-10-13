@@ -5,7 +5,7 @@ pipeline {
         //save the downloaded artifacts in my local repository
         docker {
             image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2 --network="host" -u jenkins:docker'
+            args '-v /root/.m2:/root/.m2'
         }
     }
     //our stages
