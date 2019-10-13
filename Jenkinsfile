@@ -4,7 +4,8 @@ pipeline {
         //uses the docker plugin to create a maven contain to build the project inside it.. and
         //save the downloaded artifacts in my local repository
         docker {
-            image 'quay.io/testcontainers/dind-drone-plugin'
+            image 'maven:3-alpine'
+            args '-v $PWD:$PWD -w $PWD -v /var/run/docker.sock:/var/run/docker.sock'
 
         }
     }
