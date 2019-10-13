@@ -5,7 +5,7 @@ pipeline {
         //save the downloaded artifacts in my local repository
         docker {
             image 'maven:3-alpine'
-            args '-v $PWD:$PWD -w $PWD -v /var/run/docker.sock:/var/run/docker.sock maven:3 mvn test'
+            args '-v /var/jenkins_home/workspace:/var/jenkins_home/workspace -w /var/jenkins_home/workspace -v /var/run/docker.sock:/var/run/docker.sock'
 
         }
     }
