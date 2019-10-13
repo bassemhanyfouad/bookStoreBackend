@@ -5,7 +5,7 @@ pipeline {
         //save the downloaded artifacts in my local repository
         docker {
             image 'maven:3-alpine'
-            args '-v /root:/root -w /root -v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
+            args '-v /root:/root -w /root -v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock -p 5432:5432'
 
         }
     }
