@@ -57,7 +57,7 @@ public class UserControllerIT {
                     .withDatabaseName("books_service_test")
                     .withUsername("test")
                     .withPassword("test")
-                    .withExposedPorts(5434)
+                    .withExposedPorts(5432)
                     .withNetwork(Network.SHARED);
 
 
