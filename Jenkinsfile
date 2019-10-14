@@ -22,7 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 //run the unit tests
-                sh 'mvn test'
+                sh 'mvn verify'
             }
             post {
                 //always publish the test result in the target/surefire-reports folder
