@@ -66,6 +66,7 @@ public class UserControllerIT {
     // fix for several integration tests classes using an abstract test class:
     // see https://github.com/testcontainers/testcontainers-java/issues/417
     static {
+        System.out.println("stat containerrrrrrr");
         postgreSQLContainer.start();
     }
 
