@@ -1,5 +1,6 @@
 //package com.check24.codingchallenge.bookstore.controller;
 //
+//import com.check24.codingchallenge.bookstore.AbstractIT;
 //import com.check24.codingchallenge.bookstore.entity.User;
 //import com.check24.codingchallenge.bookstore.exception.AuthenticationException;
 //import com.check24.codingchallenge.bookstore.security.JwtTokenFactory;
@@ -22,7 +23,7 @@
 // */
 //@RunWith(SpringRunner.class)
 //@WebMvcTest(UserController.class)
-//public class UserControllerTest {
+//public class UserControllerTest extends AbstractIT {
 //
 //
 //    @Autowired
