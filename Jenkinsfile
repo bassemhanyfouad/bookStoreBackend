@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+        registry = "bassemhanyfouad/i-bold"
+        registryCredential = 'd06ea51d-68f8-4256-8b43-93d09e626020'
+    }
+
     //who will run this pipeline
     agent {
         //uses the docker plugin to create a maven contain to build the project inside it.. and
@@ -29,6 +34,12 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
+            }
+        }
+
+        stage('build docker image'){
+            steps{
+                docker.build registry + ":$BUILD_NUMBER"
             }
         }
     }
