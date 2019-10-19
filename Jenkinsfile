@@ -1,8 +1,8 @@
 pipeline {
-    environment {
-        registry = "bassemhanyfouad/i-bold"
-        registryCredential = 'd06ea51d-68f8-4256-8b43-93d09e626020'
-    }
+//    environment {
+//        registry = "bassemhanyfouad/i-bold"
+//        registryCredential = 'd06ea51d-68f8-4256-8b43-93d09e626020'
+//    }
 
     //who will run this pipeline
     agent {
