@@ -1,8 +1,8 @@
 pipeline {
-//    environment {
-//        registry = "bassemhanyfouad/i-bold"
-//        registryCredential = 'd06ea51d-68f8-4256-8b43-93d09e626020'
-//    }
+    environment {
+        registry = "bassemhanyfouad/i-bold"
+        registryCredential = 'd06ea51d-68f8-4256-8b43-93d09e626020'
+    }
 
     //who will run this pipeline
     agent {
@@ -37,21 +37,21 @@ pipeline {
             }
         }
 
-//        stage('Building image') {
-//            steps{
-//                script {
-//                    dockerImage = docker.build registry + ':$BUILD_NUMBER'
-//                }
-//            }
-//        }
-//        stage('Deploy Image') {
-//            steps{
-//                script {
-//                    docker.withRegistry( '', registryCredential ) {
-//                        dockerImage.push()
-//                    }
-//                }
-//            }
-//        }
+        stage('Building image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ':$BUILD_NUMBER'
+                }
+            }
+        }
+        stage('Deploy Image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
     }
 }
