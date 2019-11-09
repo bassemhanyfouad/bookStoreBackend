@@ -32,7 +32,7 @@
         <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar-jacoco-listeners.version>5.1.1.13214</sonar-jacoco-listeners.version>
         <spring.cloud.version>1.0.0.RELEASE</spring.cloud.version>
-
+        <docker.image.prefix>bookstore</docker.image.prefix>
     </properties>
     <!-- argline -->
     <dependencyManagement>
@@ -189,7 +189,14 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>1.4.9</version>
+                    <configuration>
+                        <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                    </configuration>
+                </plugin>
+            </plugins>
     </build>
-
 </project>
