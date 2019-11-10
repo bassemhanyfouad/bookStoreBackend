@@ -18,25 +18,25 @@ pipeline {
     //our stages
     stages {
         //first stage
-        stage('Build') {
-            steps {
-                //build the project inside the maven container
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                //run the unit tests
-                sh 'mvn verify'
-            }
-            post {
-                //always publish the test result in the target/surefire-reports folder
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
+//        stage('Build') {
+//            steps {
+//                //build the project inside the maven container
+//                sh 'mvn -B -DskipTests clean package'
+//            }
+//        }
+//
+//        stage('Test') {
+//            steps {
+//                //run the unit tests
+//                sh 'mvn verify'
+//            }
+//            post {
+//                //always publish the test result in the target/surefire-reports folder
+//                always {
+//                    junit 'target/surefire-reports/*.xml'
+//                }
+//            }
+//        }
 
         stage('Building image') {
             steps{
