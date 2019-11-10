@@ -13,7 +13,7 @@ services:
   # APP*****************************************
   books-service:
     build:
-      dockerfile: dockerfile
+      dockerfile: ../../Dockerfile
       context: ../..
     container_name: books-service
     depends_on:
@@ -22,5 +22,5 @@ services:
       - "SPRING_PROFILES_ACTIVE=local,flyway"
       - "spring_datasource_url=jdbc:postgresql://localhost:5432/books_service_test"
     ports:
-      - "8083:8083"
+      - "8080:8080"
     network_mode: host
