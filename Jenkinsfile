@@ -9,7 +9,7 @@ pipeline {
         //uses the docker plugin to create a maven contain to build the project inside it.. and
         //save the downloaded artifacts in my local repository
         docker {
-            image 'maven:3-alpine'
+            image 'node:7-alpine'
             args '-v /root/.m2:/root/.m2'
 
         }
