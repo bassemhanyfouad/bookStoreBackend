@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "bassemhanyfouad/i-bold"
-        registryCredential = 'd06ea51d-68f8-4256-8b43-93d09e626020'
+        registryCredential = 'e913465f-11ff-4917-9fba-259e3124c6ad'
     }
 
     //who will run this pipeline
