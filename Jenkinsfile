@@ -5,15 +5,16 @@ pipeline {
     }
 
     //who will run this pipeline
-    agent {
-        //uses the docker plugin to create a maven contain to build the project inside it.. and
-        //save the downloaded artifacts in my local repository
-        docker {
-            image 'node:7-alpine'
-            args '-v /root/.m2:/root/.m2'
-
-        }
-    }
+//    agent {
+//        //uses the docker plugin to create a maven contain to build the project inside it.. and
+//        //save the downloaded artifacts in my local repository
+//        docker {
+//            image 'node:7-alpine'
+//            args '-v /root/.m2:/root/.m2'
+//
+//        }
+//    }
+    agent any
     //our stages
     stages {
         //first stage
