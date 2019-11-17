@@ -1,4 +1,5 @@
 FROM java:8
-COPY ./target/ /usr/src/bookstore/
-WORKDIR /usr/src/bookstore
-CMD ["java", "-jar", "bookstore.jar"]
+VOLUME /tmp
+ADD ./target/bookstore.jar app.jar
+RUN bash -c 'touch /app.jar'
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
