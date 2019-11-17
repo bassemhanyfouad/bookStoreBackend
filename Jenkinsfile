@@ -50,9 +50,10 @@ pipeline {
         }
 
         stage('Building image') {
+            sh 'printenv'
             steps{
                 script {
-                    BRANCH_TAG = "${BRANCH_NAME}".replaceAll('[^a-zA-Z0-9\\-]', '-')
+                    BRANCH_TAG = "${BRANCH_NAME}"
                     dockerImage = docker.build registry + ':$BRANCH_TAG'
                 }
             }
