@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "bassemhanyfouad/i-bold"
-//        registryCredential = 'e913465f-11ff-4917-9fba-259e3124c6ad'
+        //configured credential on jenkins.. this credential contains my username and password on dockerhub
         registryCredential = 'dockerhub'
     }
 
@@ -14,6 +14,7 @@ pipeline {
             agent {
                 //uses the docker plugin to create a maven contain to build the project inside it.. and
                 //save the downloaded artifacts in my local repository
+                //this agent is only needed for the build
                 docker {
                     image 'maven:3-alpine'
                     args '-v /root/.m2:/root/.m2'
@@ -50,8 +51,9 @@ pipeline {
 
         stage('Building image') {
             steps{
+                BRANCH_TAG = "${BRANCH_NAME}".replaceAll('[^a-zA-Z0-9\\-]', '-')
                 script {
-                    dockerImage = docker.build registry + ':$BUILD_NUMBER'
+                    dockerImage = docker.build registry + ':$BRANCH_TAG'
                 }
             }
         }

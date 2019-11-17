@@ -12,9 +12,7 @@ services:
     networks:
       - backend
   books-service:
-    build:
-      dockerfile: Dockerfile
-      context: .
+    image: bassemhanyfouad/i-bold:30
     depends_on:
       - postgres-bookstore
     environment:
