@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-        //first stage
+        // first stage
         stage('Build') {
             agent {
                 //uses the docker plugin to create a maven contain to build the project inside it.. and
