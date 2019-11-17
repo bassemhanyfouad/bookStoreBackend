@@ -51,8 +51,8 @@ pipeline {
 
         stage('Building image') {
             steps{
-                BRANCH_TAG = "${BRANCH_NAME}".replaceAll('[^a-zA-Z0-9\\-]', '-')
                 script {
+                    BRANCH_TAG = "${BRANCH_NAME}".replaceAll('[^a-zA-Z0-9\\-]', '-')
                     dockerImage = docker.build registry + ':$BRANCH_TAG'
                 }
             }
