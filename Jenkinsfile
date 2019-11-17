@@ -50,8 +50,8 @@ pipeline {
         }
 
         stage('Building image') {
-            sh 'printenv'
             steps{
+                sh 'printenv'
                 script {
                     BRANCH_TAG = "${BRANCH_NAME}"
                     dockerImage = docker.build registry + ':$BRANCH_TAG'
