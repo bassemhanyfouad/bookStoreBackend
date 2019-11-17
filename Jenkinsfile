@@ -53,7 +53,7 @@ pipeline {
             steps{
                 sh 'printenv'
                 script {
-                    BRANCH_TAG = "${BRANCH_NAME}"
+                    BRANCH_TAG = "${BRANCH_NAME}".replace('/',"-")
                     dockerImage = docker.build registry + ':$BRANCH_TAG'
                 }
             }
