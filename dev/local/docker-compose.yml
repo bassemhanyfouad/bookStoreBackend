@@ -14,7 +14,7 @@ services:
   books-service:
     build:
       dockerfile: Dockerfile
-      context: .
+      context: ../..
     depends_on:
       - postgres-bookstore
     environment:
