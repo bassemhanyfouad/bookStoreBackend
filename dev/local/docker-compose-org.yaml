@@ -13,7 +13,7 @@ services:
   # APP*****************************************
   books-service:
     build:
-      dockerfile: ../../dockerfile
+      dockerfile: ../../Dockerfile
       context: ../..
     container_name: books-service
     depends_on:

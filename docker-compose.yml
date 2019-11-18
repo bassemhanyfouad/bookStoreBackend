@@ -13,7 +13,7 @@ services:
       - backend
   books-service:
     build:
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
       context: .
     depends_on:
       - postgres-bookstore
