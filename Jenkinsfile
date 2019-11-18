@@ -28,6 +28,20 @@ pipeline {
                         echo "ORIGINAL_GIT_COMMIT is the same as GIT_COMMIT '${GIT_COMMIT}'"
                         ORIGINAL_GIT_COMMIT = "${GIT_COMMIT}"
                     }
+                    MAVEN_SETTINGS_XML = "/home/maven/settings.xml"
+                    POM_VERSION = "${readMavenPom().version}"
+                    BUILD_VERSION = "$POM_VERSION.${GIT_COMMIT[0..6]}"
+                    DEV_TAG = "dev"
+                    PROD_TAG = "prod"
+                    BRANCH_TAG = "${BRANCH_NAME}".replaceAll('[^a-zA-Z0-9\\-]', '-')
+                    GROUP_ID = "${readMavenPom().groupId}"
+                    ARTIFACT_ID = "${readMavenPom().artifactId}"
+                    DOCKER_IMAGE = "gcr.io/flathero-app/$GROUP_ID.$ARTIFACT_ID"
+                    if (env.CHANGE_BRANCH) {
+                        ORIGINAL_BRANCH_NAME = "${env.CHANGE_BRANCH}".replaceAll('[^a-zA-Z0-9\\-]', '-')
+                    } else {
+                        ORIGINAL_BRANCH_NAME = "${env.BRANCH_NAME}".replaceAll('[^a-zA-Z0-9\\-]', '-')
+                    }
                 }
 
             }
