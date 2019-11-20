@@ -57,7 +57,7 @@ pipeline {
         stage('Building image') {
             steps {
                 sh 'printenv'
-                sh 'docker build - t registry +':' + x'
+                sh 'docker build - t bassemhanyfouad/i-bold:x'
 
                 script {
                     BRANCH_TAG = "${BRANCH_NAME}".replace('/', "-")
