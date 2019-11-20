@@ -57,11 +57,9 @@ pipeline {
         stage('Building image') {
             steps {
                 sh 'printenv'
+                sh 'mkdir target/dependency'
+                sh '(cd target/dependency; tar -zxf ../*.jar)'
                 sh 'docker build - t bassemhanyfouad/i-bold:x'
-
-                script {
-                    BRANCH_TAG = "${BRANCH_NAME}".replace('/', "-")
-                }
             }
         }
         stage('Deploy Image') {
