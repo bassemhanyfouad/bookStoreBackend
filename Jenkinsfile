@@ -6,9 +6,14 @@ pipeline {
     }
 
     //who will run this pipeline
-   agent any
+    agent any
     //our stages
     stages {
+        stage('Permissions') {
+            steps {
+                sh 'chmod 777 *'
+            }
+        }
         //first stage
         stage('Build') {
             agent {
@@ -50,18 +55,18 @@ pipeline {
         }
 
         stage('Building image') {
-            steps{
+            steps {
                 sh 'printenv'
                 script {
-                    BRANCH_TAG = "${BRANCH_NAME}".replace('/',"-")
-                    dockerImage = docker.build("my-image:${env.BUILD_ID}")
+                    BRANCH_TAG = "${BRANCH_NAME}".replace('/', "-")
+                    docker build - t registry +':' + BRANCH_TAG;
                 }
             }
         }
         stage('Deploy Image') {
-            steps{
+            steps {
                 script {
-                    docker.withRegistry( '', registryCredential ) {
+                    docker.withRegistry('', registryCredential) {
                         dockerImage.push()
                     }
                 }
